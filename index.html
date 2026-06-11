@@ -654,30 +654,21 @@
     section { padding: 60px 24px; }
     #hero { padding: 0 24px; }
 
-    /* On mobile: image sits at bottom-right, gradient protects text at top */
     #hero {
       height: auto;
       min-height: 100vh;
-      padding-bottom: 200px;
+      padding: 80px 24px 32px;
     }
-    #hero-bg {
-      inset: -40px;
-      background:
-        url('https://raw.githubusercontent.com/George-Mando/George-Mando/main/xenclipse-logo-cool.png') center 80% / 95% auto no-repeat,
-        #050608;
-    }
-    .hero-overlay {
-      background: linear-gradient(to bottom,
-        rgba(5,6,8,1.0) 0%,
-        rgba(5,6,8,1.0) 55%,
-        rgba(5,6,8,0.5) 75%,
-        rgba(5,6,8,0.0) 100%
-      ) !important;
-    }
-    .hero-inner { flex-direction: column; align-items: center; gap: 24px; }
-    .hero-content { max-width: 100%; }
+    #hero-bg { background: #050608; }
+    .hero-overlay { background: none !important; }
+    /* Stack: photo centered on top, text below */
+    .hero-inner { flex-direction: column; align-items: center; gap: 20px; }
+    .hero-content { max-width: 100%; text-align: left; }
     .hero-titles { font-size: 13px; letter-spacing: 3px; max-width: 100%; }
-    .hero-photo-wrap { width: 140px; height: 170px; }
+    /* Photo: smaller, centered, not cropped */
+    .hero-photo-wrap { width: 120px; height: 145px; align-self: center; }
+    /* Logo: full width, no duplicate */
+    #hero-logo-wrap { margin-top: 24px; }
     #hero-logo { width: 100%; }
 
     .about-grid { grid-template-columns: 1fr; gap: 32px; }
