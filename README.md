@@ -1,9 +1,9 @@
-<!-- HEADER WAVE — portfolio bg #050608, accent #00e5ff -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:050608,50:00e5ff,100:050608&height=200&section=header&text=GEORGE%20CARTER&fontSize=60&fontColor=00e5ff&fontAlignY=38&desc=Game%20Developer%20%7C%20Systems%20Architect%20%7C%20World%20Builder&descAlignY=58&descSize=16&animation=fadeIn&fontAlignX=50" />
-
 <div align="center">
 
-<!-- TYPING SVG — matches portfolio cyan accent -->
+<!-- HEADER WAVE -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:050608,50:00e5ff,100:050608&height=200&section=header&text=GEORGE%20CARTER&fontSize=60&fontColor=00e5ff&fontAlignY=38&desc=Game%20Developer%20%7C%20Systems%20Architect%20%7C%20World%20Builder&descAlignY=58&descSize=16&animation=fadeIn" />
+
+<!-- TYPING SVG -->
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&weight=700&size=20&duration=3000&pause=800&color=00E5FF&center=true&vCenter=true&width=700&lines=%2F%2F+Unreal+Engine+5+%7C+Unity+%7C+C%2B%2B;%2F%2F+Building+Systems+That+Feel+Alive;%2F%2F+Tools+%7C+Gameplay+Loops+%7C+AI+Systems;%2F%2F+Clean+Code.+Fun+Games.+Real+Results.)](https://git.io/typing-svg)
 
 <br/>
