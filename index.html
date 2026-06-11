@@ -93,23 +93,74 @@
 
   /* ── HERO ── */
   #hero {
-    position: relative; height: 100vh;
+    position: relative;
     display: flex; flex-direction: column;
-    justify-content: center; align-items: flex-start;
-    padding: 0 80px; overflow: hidden;
+    justify-content: center; align-items: stretch;
+    padding: 100px 80px 40px; overflow: hidden;
+    min-height: 100vh;
   }
-  /* Hero background: image anchored right with breathing */
+  /* Top row: photo LEFT + text RIGHT */
+  .hero-inner {
+    display: flex; flex-direction: row;
+    align-items: center;
+    gap: 48px;
+    width: 100%;
+    z-index: 2; position: relative;
+  }
+  /* Photo on the LEFT */
+  .hero-photo-wrap {
+    position: relative; flex-shrink: 0;
+    width: 190px; height: 230px;
+    z-index: 2;
+  }
+  .hero-photo-wrap::before {
+    content: '';
+    position: absolute; inset: -3px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+    z-index: -1;
+    animation: photoBorderPulse 4s ease-in-out infinite;
+  }
+  @keyframes photoBorderPulse {
+    0%,100% { opacity: 0.7; }
+    50%      { opacity: 1; box-shadow: 0 0 32px var(--accent), 0 0 60px rgba(0,229,255,0.2); }
+  }
+  .hero-photo-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    border-radius: 3px; display: block;
+    filter: brightness(1.05) contrast(1.05);
+  }
+  .hero-photo-corner { position: absolute; width: 14px; height: 14px; }
+  .hero-photo-corner.tl { top:-6px; left:-6px; border-top:2px solid var(--accent); border-left:2px solid var(--accent); }
+  .hero-photo-corner.tr { top:-6px; right:-6px; border-top:2px solid var(--accent); border-right:2px solid var(--accent); }
+  .hero-photo-corner.bl { bottom:-6px; left:-6px; border-bottom:2px solid var(--accent); border-left:2px solid var(--accent); }
+  .hero-photo-corner.br { bottom:-6px; right:-6px; border-bottom:2px solid var(--accent); border-right:2px solid var(--accent); }
+  /* Text content on the RIGHT */
+  .hero-content {
+    position: relative; z-index: 2;
+    flex: 1; max-width: 560px;
+  }
+  /* Logo BELOW the row, full width */
+  #hero-logo-wrap {
+    width: 100%; margin-top: 40px;
+    z-index: 2; position: relative;
+    display: flex; justify-content: center;
+  }
+  #hero-logo {
+    width: 100%; max-width: 100%;
+    opacity: 0.85;
+    animation: heroLogoBreath 5s ease-in-out infinite;
+    display: block;
+  }
+  @keyframes heroLogoBreath {
+    0%,100% { opacity: 0.75; transform: scale(1.00); }
+    50%     { opacity: 1.0;  transform: scale(1.02); }
+  }
+  /* Hero background: clean dark */
   #hero-bg {
-    position: absolute; inset: -40px; z-index: 0;
-    background:
-      url('https://raw.githubusercontent.com/George-Mando/George-Mando/main/xenclipse-logo-cool.png') 85% center / 58% auto no-repeat,
-      #050608;
-    animation: heroBreath 5s ease-in-out infinite;
-  }
-  @keyframes heroBreath {
-    0%   { transform: scale(1.00); opacity: 0.90; }
-    50%  { transform: scale(1.05); opacity: 1.0; }
-    100% { transform: scale(1.00); opacity: 0.90; }
+    position: absolute; inset: 0; z-index: 0;
+    background: #050608;
   }
     10%  { opacity: 1; background: radial-gradient(ellipse 55% 45% at 65% 40%, rgba(180,220,255,0.50) 0%, transparent 65%); }
     11%  { opacity: 0; background: none; }
@@ -127,23 +178,12 @@
   .hero-overlay {
     position: absolute; inset: 0;
     background:
-      linear-gradient(to right,
-        rgba(5,6,8,1.0) 0%,
-        rgba(5,6,8,1.0) 42%,
-        rgba(5,6,8,0.85) 55%,
-        rgba(5,6,8,0.15) 75%,
-        rgba(5,6,8,0.0) 100%
-      ),
-      linear-gradient(to bottom,
-        rgba(5,6,8,0.5) 0%,
-        transparent 15%,
-        transparent 85%,
-        rgba(5,6,8,0.5) 100%
-      );
+      radial-gradient(ellipse 80% 60% at 60% 50%, rgba(0,229,255,0.04) 0%, transparent 70%),
+      rgba(5,6,8,0.15);
     z-index: 1;
   }
   #grid-canvas { position: absolute; inset: 0; z-index: 0; opacity: 0.18; }
-  .hero-content { position: relative; z-index: 2; max-width: 480px; }
+  .hero-content { position: relative; z-index: 2; max-width: 520px; flex: 1; }
 
   .hero-eyebrow {
     font-family: 'Share Tech Mono', monospace;
@@ -634,8 +674,11 @@
         rgba(5,6,8,0.0) 100%
       ) !important;
     }
+    .hero-inner { flex-direction: column; align-items: center; gap: 24px; }
     .hero-content { max-width: 100%; }
     .hero-titles { font-size: 13px; letter-spacing: 3px; max-width: 100%; }
+    .hero-photo-wrap { width: 140px; height: 170px; }
+    #hero-logo { width: 100%; }
 
     .about-grid { grid-template-columns: 1fr; gap: 32px; }
     .project-card.featured { grid-column: auto; display: block; }
@@ -677,21 +720,33 @@
   <div class="corner corner-tr"></div>
   <div class="corner corner-bl"></div>
   <div class="corner corner-br"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">// Full Sail University &bull; B.S. Game Development &bull; Class of 2026</p>
-    <h1 class="hero-name glitch" data-text="GEORGE CARTER">
-      GEORGE <span class="hi">CARTER</span>
-    </h1>
-    <p class="hero-titles">Game Developer &nbsp;/&nbsp; Gameplay Programmer<br>&nbsp;/&nbsp; Systems Architect</p>
-    <p class="hero-desc">
-      Building interactive worlds from scratch — specializing in gameplay programming,
-      AI systems, and procedural generation. Backed by 16 years of engineering discipline
-      that makes every system ship clean.
-    </p>
-    <div class="hero-ctas">
-      <a href="#projects" class="btn-primary">View Projects</a>
-      <a href="#contact" class="btn-ghost">Contact Me</a>
+  <div class="hero-inner">
+    <div class="hero-photo-wrap">
+      <span class="hero-photo-corner tl"></span>
+      <span class="hero-photo-corner tr"></span>
+      <span class="hero-photo-corner bl"></span>
+      <span class="hero-photo-corner br"></span>
+      <img src="https://raw.githubusercontent.com/George-Mando/George-Carter-Portfolio/main/MySelf.jpg" alt="George Carter" />
     </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">// Full Sail University &bull; B.S. Game Development &bull; Class of 2026</p>
+      <h1 class="hero-name glitch" data-text="GEORGE CARTER">
+        GEORGE <span class="hi">CARTER</span>
+      </h1>
+      <p class="hero-titles">Game Developer &nbsp;/&nbsp; Gameplay Programmer<br>&nbsp;/&nbsp; Systems Architect</p>
+      <p class="hero-desc">
+        Building interactive worlds from scratch — specializing in gameplay programming,
+        AI systems, and procedural generation. Backed by 16 years of engineering discipline
+        that makes every system ship clean.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-ghost">Contact Me</a>
+      </div>
+    </div>
+  </div>
+  <div id="hero-logo-wrap">
+    <img id="hero-logo" src="https://raw.githubusercontent.com/George-Mando/George-Mando/main/xenclipse-logo-cool.png" alt="XenClipse Studios" />
   </div>
 </section>
 
