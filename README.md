@@ -33,7 +33,7 @@
 
 > *// Systems initializing at XenClipse Studios — stand by.*
 
-[![ENTER PORTFOLIO](https://img.shields.io/badge/%E2%96%B6_ENTER_PORTFOLIO-00e5ff?style=for-the-badge&logoColor=050608&labelColor=050608)](https://george-mando.github.io/George-Mando/)
+[![ENTER PORTFOLIO](https://img.shields.io/badge/%E2%96%B6_ENTER_PORTFOLIO-00e5ff?style=for-the-badge&logoColor=050608&labelColor=050608)](https://george-mando.github.io/George-Carter-Portfolio/)
 
 **XenClipse Studios · Portfolio · Systems Hub**
 
@@ -241,7 +241,7 @@ Rise from novice to hero while rebuilding a dying town. Led **UI/UX & AI Design*
 
 <div align="center">
 
-[![View Resume](https://img.shields.io/badge/%F0%9F%8E%B2_VIEW_RESUME-ROLL_THE_VARIANT-00e5ff?style=for-the-badge&labelColor=050608)](https://george-mando.github.io/George-Mando/resume)
+[![View Resume](https://img.shields.io/badge/%F0%9F%8E%B2_VIEW_RESUME-ROLL_THE_VARIANT-00e5ff?style=for-the-badge&labelColor=050608)](https://george-mando.github.io/George-Carter-Portfolio/resume)
 
 > *Each visit randomly loads one of two resume designs — re-roll anytime.*
 
