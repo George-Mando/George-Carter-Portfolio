@@ -667,6 +667,8 @@
     .hero-titles { font-size: 13px; letter-spacing: 3px; max-width: 100%; }
     /* Photo: smaller, centered, not cropped */
     .hero-photo-wrap { width: 120px; height: 145px; align-self: center; }
+    .hero-ctas { flex-direction: column; gap: 10px; }
+    .hero-ctas a, .hero-ctas span { width: 100%; text-align: center; box-sizing: border-box; }
     /* Logo: full width, no duplicate */
     #hero-logo-wrap { margin-top: 24px; }
     #hero-logo { width: 100%; }
@@ -674,8 +676,10 @@
     .about-grid { grid-template-columns: 1fr; gap: 32px; }
     .project-card.featured { grid-column: auto; display: block; }
     .project-card.featured .card-thumb--yt { height: 200px; }
-    nav { padding: 0 18px; }
-    .nav-links { gap: 14px; }
+    nav { padding: 0 14px; }
+    .nav-links { gap: 10px; overflow-x: auto; flex-wrap: nowrap; padding-right: 8px; }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a { font-size: 9px; letter-spacing: 1px; white-space: nowrap; }
     .corner-tr,.corner-br { right: 18px; }
     .corner-tl,.corner-bl { left: 18px; }
     .progen-desc { grid-template-columns: 1fr; }
