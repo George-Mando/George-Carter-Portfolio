@@ -162,19 +162,6 @@
     position: absolute; inset: 0; z-index: 0;
     background: #050608;
   }
-    10%  { opacity: 1; background: radial-gradient(ellipse 55% 45% at 65% 40%, rgba(180,220,255,0.50) 0%, transparent 65%); }
-    11%  { opacity: 0; background: none; }
-    12%  { opacity: 0.7; background: radial-gradient(ellipse 70% 60% at 70% 50%, rgba(0,229,255,0.30) 0%, transparent 70%); }
-    14%  { opacity: 0; background: none; }
-    44%  { opacity: 0; background: none; }
-    45%  { opacity: 1; background: radial-gradient(ellipse 40% 50% at 72% 35%, rgba(200,230,255,0.55) 0%, transparent 60%); }
-    46%  { opacity: 0; background: none; }
-    47%  { opacity: 0.5; background: radial-gradient(ellipse 80% 40% at 60% 55%, rgba(0,229,255,0.22) 0%, transparent 75%); }
-    49%  { opacity: 0; background: none; }
-    79%  { opacity: 0; background: none; }
-    80%  { opacity: 1; background: radial-gradient(ellipse 50% 55% at 75% 42%, rgba(160,210,255,0.45) 0%, transparent 65%); }
-    81%  { opacity: 0; background: none; }
-  }
   .hero-overlay {
     position: absolute; inset: 0;
     background:
@@ -183,7 +170,6 @@
     z-index: 1;
   }
   #grid-canvas { position: absolute; inset: 0; z-index: 0; opacity: 0.18; }
-  .hero-content { position: relative; z-index: 2; max-width: 520px; flex: 1; }
 
   .hero-eyebrow {
     font-family: 'Share Tech Mono', monospace;
@@ -489,6 +475,74 @@
     text-transform: uppercase; display: inline-block; margin-bottom: 9px;
   }
 
+  /* ── TOOLS / SOLIDWORKS SUITE ── */
+  #tools { background: var(--panel); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .tools-intro { max-width: 780px; font-size: 15px; line-height: 1.85; color: var(--text); margin-bottom: 44px; }
+  .tools-intro strong { color: var(--accent); }
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .tool-group {
+    background: var(--void); border: 1px solid var(--border);
+    padding: 22px 22px 24px; position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+    clip-path: polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px));
+  }
+  .tool-group:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .tool-group-head {
+    font-family: 'Orbitron', monospace;
+    font-size: 13px; font-weight: 700; color: #fff;
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 16px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .tool-group-head::before {
+    content: ''; width: 7px; height: 7px; flex-shrink: 0;
+    background: var(--accent); transform: rotate(45deg);
+    box-shadow: 0 0 8px var(--accent);
+  }
+  .tool-group-count {
+    margin-left: auto;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px; letter-spacing: 1px; color: var(--muted);
+    font-weight: 400;
+  }
+  .tool-list { display: flex; flex-direction: column; gap: 8px; }
+  .tool-chip {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px; letter-spacing: 0.5px; color: var(--text);
+    padding: 8px 12px;
+    background: var(--surface); border: 1px solid var(--border);
+    position: relative; transition: border-color 0.2s, color 0.2s;
+  }
+  .tool-chip::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--accent2);
+  }
+  .tool-group.g-pipe   .tool-group-head::before { background: var(--accent);  box-shadow: 0 0 8px var(--accent); }
+  .tool-group.g-asm    .tool-group-head::before { background: var(--accent2); box-shadow: 0 0 8px var(--accent2); }
+  .tool-group.g-data   .tool-group-head::before { background: var(--accent3); box-shadow: 0 0 8px var(--accent3); }
+  .tool-group.g-tank   .tool-group-head::before { background: #22c55e;        box-shadow: 0 0 8px #22c55e; }
+  .tool-group.g-pipe .tool-chip::before { background: var(--accent); }
+  .tool-group.g-asm  .tool-chip::before { background: var(--accent2); }
+  .tool-group.g-data .tool-chip::before { background: var(--accent3); }
+  .tool-group.g-tank .tool-chip::before { background: #22c55e; }
+  .tool-chip:hover { border-color: var(--accent); color: var(--accent); }
+  .tools-meta {
+    margin-top: 36px; display: flex; flex-wrap: wrap; gap: 40px;
+    padding-top: 28px; border-top: 1px solid var(--border);
+  }
+  .tools-meta-item {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase;
+  }
+  .tools-meta-num {
+    display: block; margin-bottom: 4px;
+    font-family: 'Orbitron', monospace; font-size: 26px; font-weight: 700;
+    color: var(--accent); letter-spacing: 1px;
+  }
+  .tools-meta-num.orange { color: var(--accent3); }
+  .tools-meta-num.purple { color: #a78bfa; }
+
   /* ── PROGEN SECTION ── */
   #progen { background: var(--panel); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   #progen-wrap {
@@ -683,6 +737,7 @@
     .corner-tr,.corner-br { right: 18px; }
     .corner-tl,.corner-bl { left: 18px; }
     .progen-desc { grid-template-columns: 1fr; }
+    .tools-meta { gap: 24px; }
     #pg-hud-bottom { grid-template-columns: 1fr 1fr; }
     .pg-stat-cell:nth-child(2) { border-right: none; }
     .pg-stat-cell:nth-child(3) { border-top: 1px solid var(--border); }
@@ -700,6 +755,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#tools">SolidWorks</a></li>
     <li><a href="#progen">XenCore</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -786,7 +842,7 @@
         <div class="skill-tag">Physics Systems</div>
         <div class="skill-tag orange">GitHub / Perforce</div>
         <div class="skill-tag orange">Vulkan (Intro)</div>
-        <div class="skill-tag orange">SolidWorks CPro</div>
+        <div class="skill-tag orange">SolidWorks API</div>
         <div class="skill-tag orange">AutoCAD / Creo</div>
       </div>
     </div>
@@ -923,9 +979,74 @@
   </div>
 </section>
 
+<!-- TOOLS — SOLIDWORKS AUTOMATION SUITE -->
+<section id="tools">
+  <p class="section-label">03 // Engineering Tools</p>
+  <h2 class="section-title">SolidWorks Automation Suite</h2>
+
+  <p class="tools-intro reveal">
+    A suite of <strong>custom SolidWorks add-ins</strong> built against the SolidWorks API to automate
+    repetitive CAD work — generating parametric pipe, fitting, and tank geometry on demand, then producing
+    the drawings, BOMs, and metadata that go with it. Same systems-thinking that drives my gameplay tools,
+    applied to production engineering. Every tool below is built and working.
+  </p>
+
+  <div class="tools-grid reveal">
+
+    <div class="tool-group g-pipe">
+      <div class="tool-group-head">// Pipe &amp; Fitting Builders <span class="tool-group-count">7 tools</span></div>
+      <div class="tool-list">
+        <span class="tool-chip">Flange Filament-Wound Socket</span>
+        <span class="tool-chip">Concentric Reducer Builder</span>
+        <span class="tool-chip">Bell &amp; Spigot Builder</span>
+        <span class="tool-chip">Elbow (Plain End)</span>
+        <span class="tool-chip">Flange Builder</span>
+        <span class="tool-chip">Single Flange</span>
+        <span class="tool-chip">Single Pipe</span>
+      </div>
+    </div>
+
+    <div class="tool-group g-asm">
+      <div class="tool-group-head">// Assemblies <span class="tool-group-count">4 tools</span></div>
+      <div class="tool-list">
+        <span class="tool-chip">Full Pipe Assembly</span>
+        <span class="tool-chip">Full Pipe Pro Assembly</span>
+        <span class="tool-chip">Full Pipe Weldment Assembly</span>
+        <span class="tool-chip">Pipe Assembly</span>
+      </div>
+    </div>
+
+    <div class="tool-group g-data">
+      <div class="tool-group-head">// Drawings, BOM &amp; Data <span class="tool-group-count">5 tools</span></div>
+      <div class="tool-list">
+        <span class="tool-chip">Drawing &amp; BOM Generator</span>
+        <span class="tool-chip">BOM Creator</span>
+        <span class="tool-chip">Table Creator</span>
+        <span class="tool-chip">Properties Creator</span>
+        <span class="tool-chip">Data / Extract &amp; Get Information</span>
+      </div>
+    </div>
+
+    <div class="tool-group g-tank">
+      <div class="tool-group-head">// Tank Tools <span class="tool-group-count">2 tools</span></div>
+      <div class="tool-list">
+        <span class="tool-chip">Tank App</span>
+        <span class="tool-chip">Tank Tester</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tools-meta reveal">
+    <div class="tools-meta-item"><span class="tools-meta-num">18</span>Custom Add-ins</div>
+    <div class="tools-meta-item"><span class="tools-meta-num orange">4</span>Tool Categories</div>
+    <div class="tools-meta-item"><span class="tools-meta-num purple">API</span>SolidWorks / C#</div>
+  </div>
+</section>
+
 <!-- PROGEN — FULL UPGRADED ENGINE -->
 <section id="progen">
-  <p class="section-label">03 // Systems</p>
+  <p class="section-label">04 // Systems</p>
   <h2 class="section-title">XenCore Engine</h2>
 
   <div id="progen-wrap" class="reveal">
@@ -1010,7 +1131,7 @@
 
 <!-- EXPERIENCE TIMELINE -->
 <section id="experience">
-  <p class="section-label">04 // Record</p>
+  <p class="section-label">05 // Record</p>
   <h2 class="section-title">Experience</h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px">
     <div class="reveal">
@@ -1045,7 +1166,7 @@
           <div class="tl-meta">Sep 2021 – Present</div>
           <div class="tl-title">Chief Engineer</div>
           <div class="tl-sub">Barrett Trailers &bull; Purcell, OK</div>
-          <div class="tl-desc">Led redesigns across 6+ trailer lines. 40+ component upgrades cut material and fabrication costs 12–18%.</div>
+          <div class="tl-desc">Led redesigns across 6+ trailer lines. 40+ component upgrades cut material and fabrication costs 12–18%. Built a suite of SolidWorks add-ins to automate pipe, fitting, and tank design.</div>
         </div>
         <div class="tl-item">
           <div class="tl-meta">Apr 2020 – Sep 2021</div>
@@ -1072,7 +1193,7 @@
 
 <!-- CONTACT -->
 <section id="contact">
-  <p class="section-label" style="justify-content:center">05 // Contact</p>
+  <p class="section-label" style="justify-content:center">06 // Contact</p>
   <h2 class="section-title reveal" style="text-align:center">Let's Build Something</h2>
   <div class="contact-inner reveal">
     <p>Looking for a game developer who ships clean systems and sweats the details? Whether it's a studio role, internship, or a collab — I'm listening.</p>
