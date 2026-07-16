@@ -55,6 +55,8 @@ public:
 
     std::string currently_building = "Feather Fall";
     std::string passion            = "Systems that feel alive";
+    std::string degree             = "B.S. Game Development — Full Sail University";
+    std::string honors             = "Valedictorian · Advanced Achievement · Course Director Award (Game Integration)";
     bool        open_to_work       = true;  // <-- hire me!
 
     std::string mission() {
@@ -81,6 +83,20 @@ public:
 <tr>
 <td width="50%" valign="top">
 
+### 🌘 Eclipse: Quest for the Lost Relic
+> *Dark Fantasy Action RPG · Xenclipse Studios*
+
+Single-player Action RPG built in Unity. Play the Revenant, dragged back from death to reclaim the Solheart relic from the corrupted realm of Caelmoor — stamina-gated combat, oath-rank progression, a Rekindling system, and the signature **Forms of the Eclipse** shapeshifting mechanic.
+
+![Unity](https://img.shields.io/badge/Unity-00e5ff?style=flat-square&logo=unity&logoColor=050608)
+![C#](https://img.shields.io/badge/C%23-7c3aed?style=flat-square&logo=csharp&logoColor=white)
+![Action RPG](https://img.shields.io/badge/Action_RPG-ff6b35?style=flat-square&logoColor=white)
+
+🔒 *Coming soon*
+
+</td>
+<td width="50%" valign="top">
+
 ### 🪶 Feather Fall
 > *Puzzle Game · In Development*
 
@@ -93,6 +109,8 @@ Drop rocks to brick eggs — match **4 or more** in a row to break them. A gravi
 🔗 *Coming soon to itch.io*
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 ### 💊 Dr Malware
@@ -107,8 +125,6 @@ Classic puzzle mechanics rebuilt with **magic**, **hacker**, and **bird** theme 
 🎮 [**Play on itch.io →**](https://george-carter.itch.io/)
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
 ### ⚙️ Clockwork Horrors
@@ -123,7 +139,9 @@ Intense FPS set in an icy post-apocalyptic wasteland. Play as **Timebot** — hu
 🎮 [**Play on itch.io →**](https://george-carter.itch.io/)
 
 </td>
-<td width="50%" valign="top">
+</tr>
+<tr>
+<td width="100%" valign="top" colspan="2" align="center">
 
 ### 🌑 Shadows of Beginnings
 > *Action-Adventure RPG · Shipped · Team Nebula*
@@ -196,11 +214,13 @@ Rise from novice to hero while rebuilding a dying town. Led **UI/UX & AI Design*
 ║                      GITHUB  MILESTONES                          ║
 ╠══════════════════════════════════════════════════════════════════╣
 ║  //  Game Developer          Full Sail University  · 2024–2026   ║
+║  //  Valedictorian           Advanced Achievement  · Class of 2026║
+║  //  Course Director Award   Game Integration                    ║
 ║  //  16 Years Engineering    Mechanical → Game Dev Pipeline       ║
 ║  //  AI Systems              Behavior Trees · State Machines      ║
 ║  //  Dual Engine             Unreal Engine 5  +  Unity (C#)       ║
 ║  //  3x CSWP Certified       SolidWorks Professional              ║
-║  //  3 Shipped Games         RPG · FPS · Puzzle                   ║
+║  //  4 Shipped/In-Dev Games  RPG · FPS · Puzzle · Action RPG      ║
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
@@ -209,7 +229,9 @@ Rise from novice to hero while rebuilding a dying town. Led **UI/UX & AI Design*
 | 🎮 First Game Shipped | ✅ |
 | 🤖 AI Systems Implemented | ✅ |
 | 🖥️ Dual Engine (UE5 + Unity) | ✅ |
-| 🎓 B.S. Game Development | 🔄 Jun 2026 |
+| 🎓 B.S. Game Development | ✅ Conferred Jul 2026 |
+| 🏆 Valedictorian — Advanced Achievement | ✅ |
+| 🏅 Course Director Award — Game Integration | ✅ |
 | 🚀 XenClipse Studios Founded | ✅ |
 | 💼 16 Years Professional Engineering | ✅ |
 | 📐 SolidWorks Certified Professional (x3) | ✅ |
@@ -263,6 +285,7 @@ Rise from novice to hero while rebuilding a dying town. Led **UI/UX & AI Design*
 GAME DEVELOPMENT
 ─────────────────────────────────────────────────────────────────
 //  Shadows of Beginnings   APR 2026–PRESENT   UE5    UI/UX & AI Lead
+//  Eclipse: Lost Relic      XENCLIPSE STUDIOS  Unity  Action RPG · Coming Soon
 //  Clockwork Horrors        JUN 2025           Unity  Gameplay & AI Systems
 //  Dr. Malware              OCT 2025           C++    Core Systems
 
@@ -280,7 +303,7 @@ ENGINEERING  (16 Years)
 
 | Degree | School | Year |
 |:---|:---|:---:|
-| B.S. Game Development | Full Sail University | 2026 |
+| B.S. Game Development *(Valedictorian, Advanced Achievement)* | Full Sail University | 2026 |
 | B.S. Mechanical Engineering | Cameron University | 2008 |
 | A.A.S. Applied Science | Cameron University | 2006 |
 
@@ -288,6 +311,7 @@ ENGINEERING  (16 Years)
 ![CSWP Sheet Metal](https://img.shields.io/badge/CSWP-Sheet_Metal-00e5ff?style=flat-square&logoColor=050608&labelColor=050608)
 ![CSWP Weldments](https://img.shields.io/badge/CSWP-Weldments-00e5ff?style=flat-square&logoColor=050608&labelColor=050608)
 ![SolidWorks PDM](https://img.shields.io/badge/SolidWorks-PDM_Certified-7c3aed?style=flat-square&logoColor=white&labelColor=050608)
+![Course Director Award](https://img.shields.io/badge/Course_Director_Award-Game_Integration-00e5ff?style=flat-square&logoColor=050608&labelColor=050608)
 
 </div>
 
