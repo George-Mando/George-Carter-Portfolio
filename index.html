@@ -489,6 +489,39 @@
     transform: scale(1.03);
   }
   .card-thumb--gallery .gal-cell { overflow: hidden; position: relative; }
+  .gal-clickable { cursor: zoom-in; }
+
+  /* ── LIGHTBOX ── */
+  #lightbox {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(5,6,8,0.92);
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 60px 30px;
+    backdrop-filter: blur(6px);
+  }
+  #lightbox.open { display: flex; }
+  #lightbox img {
+    max-width: 100%; max-height: 100%;
+    object-fit: contain;
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 40px rgba(0,229,255,0.25);
+  }
+  #lightbox-close {
+    position: absolute; top: 20px; right: 30px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent); background: transparent;
+    border: 1px solid var(--accent); padding: 8px 16px;
+    cursor: pointer; transition: background 0.2s;
+  }
+  #lightbox-close:hover { background: var(--glow); }
+  #lightbox-caption {
+    position: absolute; bottom: 24px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase;
+  }
 
   /* featured */
   .project-card.featured {
@@ -936,13 +969,13 @@
       <div class="card-glow"></div>
       <div class="card-thumb card-thumb--gallery">
         <div class="gal-main">
-          <img src="https://raw.githubusercontent.com/George-Mando/George-Mando/main/MainImage.png" alt="Eclipse: Quest for the Lost Relic key art">
+          <img class="gal-clickable" src="https://raw.githubusercontent.com/George-Mando/George-Mando/main/MainImage.png" alt="Eclipse: Quest for the Lost Relic key art" onclick="event.stopPropagation(); openLightbox(this.src, this.alt)">
         </div>
         <div class="gal-cell">
-          <img src="https://raw.githubusercontent.com/George-Mando/George-Mando/main/IN.png" alt="Eclipse: Quest for the Lost Relic in-game screenshot">
+          <img class="gal-clickable" src="https://raw.githubusercontent.com/George-Mando/George-Mando/main/IN.png" alt="Eclipse: Quest for the Lost Relic in-game screenshot" onclick="event.stopPropagation(); openLightbox(this.src, this.alt)">
         </div>
         <div class="gal-cell">
-          <img src="https://raw.githubusercontent.com/George-Mando/George-Mando/main/HUD.png" alt="Eclipse: Quest for the Lost Relic HUD screenshot">
+          <img class="gal-clickable" src="https://raw.githubusercontent.com/George-Mando/George-Mando/main/HUD.png" alt="Eclipse: Quest for the Lost Relic HUD screenshot" onclick="event.stopPropagation(); openLightbox(this.src, this.alt)">
         </div>
       </div>
       <div class="card-content">
@@ -1294,6 +1327,13 @@
   </div>
 </section>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <button id="lightbox-close" onclick="event.stopPropagation(); closeLightbox()">✕ Close</button>
+  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+  <div id="lightbox-caption"></div>
+</div>
+
 <!-- STATUS BAR -->
 <div class="status-bar">
   <div class="status-dot"></div>
@@ -1604,6 +1644,22 @@ document.querySelectorAll('.project-card').forEach(card => {
   });
   card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
+
+// ── LIGHTBOX ─────────────────────────────────────────
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+function openLightbox(src, alt) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt || '';
+  lightboxCaption.textContent = alt || '';
+  lightbox.classList.add('open');
+}
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  lightboxImg.src = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
 // ── LIVE CLOCK ───────────────────────────────────────
 const timeEl = document.getElementById('live-time');
