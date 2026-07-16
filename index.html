@@ -286,6 +286,13 @@
     font-size: 13px; line-height: 1.7; color: var(--muted);
   }
   .about-text .eng-note strong { color: var(--accent3); }
+  .about-text .cred-note {
+    margin-top: 20px; padding: 14px 18px;
+    background: var(--surface);
+    border-left: 3px solid #22c55e;
+    font-size: 13px; line-height: 1.7; color: var(--muted);
+  }
+  .about-text .cred-note strong { color: #22c55e; }
   .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .skill-tag {
     font-family: 'Share Tech Mono', monospace;
@@ -457,6 +464,31 @@
     font-size: 9px; letter-spacing: 2px;
     color: var(--accent); text-transform: uppercase;
   }
+
+  /* multi-image gallery thumb */
+  .card-thumb--gallery {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    height: 180px;
+    background: var(--border);
+  }
+  .card-thumb--gallery .gal-main {
+    grid-row: 1 / 3;
+    overflow: hidden;
+  }
+  .card-thumb--gallery img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    filter: saturate(0.75) brightness(0.85);
+    transition: filter 0.3s, transform 0.3s;
+  }
+  .project-card:hover .card-thumb--gallery img {
+    filter: saturate(1) brightness(1);
+    transform: scale(1.03);
+  }
+  .card-thumb--gallery .gal-cell { overflow: hidden; position: relative; }
 
   /* featured */
   .project-card.featured {
@@ -780,7 +812,7 @@
       <img src="https://raw.githubusercontent.com/George-Mando/George-Carter-Portfolio/main/MySelf.jpg" alt="George Carter" />
     </div>
     <div class="hero-content">
-      <p class="hero-eyebrow">// Full Sail University &bull; B.S. Game Development &bull; Class of 2026</p>
+      <p class="hero-eyebrow">// Full Sail University &bull; B.S. Game Development &bull; Valedictorian, Class of 2026</p>
       <h1 class="hero-name glitch" data-text="GEORGE CARTER">
         GEORGE <span class="hi">CARTER</span>
       </h1>
@@ -811,15 +843,20 @@
   <div class="about-grid reveal">
     <div class="about-text">
       <p>
-        I'm a <strong>game developer at Full Sail University</strong> (graduating June 2026)
-        specializing in gameplay programming, AI systems, and UI/UX architecture in
-        Unreal Engine (C++/Blueprints) and Unity (C#).
+        I'm a <strong>game developer and Full Sail University alumnus</strong> — Bachelor of Science
+        in Game Development, conferred July 3, 2026 — specializing in gameplay programming, AI systems,
+        and UI/UX architecture in Unreal Engine (C++/Blueprints) and Unity (C#).
       </p>
       <p>
         My focus is on building systems that create emergent, replayable gameplay —
         from procedural dungeon generators that loop forever to AI behavior trees that
         keep players on edge. I believe the best games reward curiosity and punish complacency.
       </p>
+      <div class="cred-note">
+        <strong>// Academic honors:</strong> Graduated Valedictorian with Advanced Achievement
+        and received the Course Director Award for Game Integration. Degree conferred and verified —
+        Full Sail University Alumni, Class of 2026.
+      </div>
       <div class="eng-note">
         <strong>// Engineering background:</strong> 16 years as a Mechanical Engineer —
         Chief Engineer at Barrett Trailers, embedded engineer at Tesla, and a decade of
@@ -887,6 +924,45 @@
           <span class="tag">XenCore</span>
           <span class="tag">Level Design</span>
           <span class="tag">Team Project</span>
+        </div>
+        <div style="margin-top:14px">
+          <span class="btn-ghost" style="font-size:10px;padding:10px 20px;cursor:default;opacity:0.6">// Coming Soon</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ECLIPSE: QUEST FOR THE LOST RELIC -->
+    <div class="project-card reveal">
+      <div class="card-glow"></div>
+      <div class="card-thumb card-thumb--gallery">
+        <div class="gal-main">
+          <img src="https://raw.githubusercontent.com/George-Mando/George-Mando/main/MainImage.png" alt="Eclipse: Quest for the Lost Relic key art">
+        </div>
+        <div class="gal-cell">
+          <img src="https://raw.githubusercontent.com/George-Mando/George-Mando/main/IN.png" alt="Eclipse: Quest for the Lost Relic in-game screenshot">
+        </div>
+        <div class="gal-cell">
+          <img src="https://raw.githubusercontent.com/George-Mando/George-Mando/main/HUD.png" alt="Eclipse: Quest for the Lost Relic HUD screenshot">
+        </div>
+      </div>
+      <div class="card-content">
+        <div class="card-date">Xenclipse Studios</div>
+        <p class="card-type">// Dark Fantasy Action RPG</p>
+        <h3 class="card-title">Eclipse: Quest for the Lost Relic</h3>
+        <p class="card-desc">
+          Single-player Action RPG built in Unity (PC/Windows). Players take on the Revenant,
+          a soul dragged back from death, walking the corrupted realm of Caelmoor to reclaim the
+          Solheart relic. Stamina-gated combat, oath-rank progression, and a Rekindling system
+          that physically pushes back the dark. Signature system: Forms of the Eclipse — shapeshifting
+          into lost sky-creatures for mobility, stealth, and Metroidvania-style traversal.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Unity</span>
+          <span class="tag">C#</span>
+          <span class="tag">Action RPG</span>
+          <span class="tag">Metroidvania</span>
+          <span class="tag">Combat Systems</span>
+          <span class="tag">Xenclipse Studios</span>
         </div>
         <div style="margin-top:14px">
           <span class="btn-ghost" style="font-size:10px;padding:10px 20px;cursor:default;opacity:0.6">// Coming Soon</span>
@@ -1145,6 +1221,12 @@
           <div class="tl-desc">Horror-event logic, ambush triggers, encounter pacing, procedural generation final stage.</div>
         </div>
         <div class="tl-item">
+          <div class="tl-meta">Xenclipse Studios</div>
+          <div class="tl-title">Eclipse: Quest for the Lost Relic</div>
+          <div class="tl-sub">Dark Fantasy Action RPG &bull; Unity</div>
+          <div class="tl-desc">Single-player Action RPG — combat systems, oath-rank progression, Rekindling system, and the Forms of the Eclipse shapeshifting mechanic.</div>
+        </div>
+        <div class="tl-item">
           <div class="tl-meta">Sep 2025 – Oct 2025</div>
           <div class="tl-title">Dr. Malware</div>
           <div class="tl-sub">Puzzle Game &bull; Full Sail University</div>
@@ -1216,7 +1298,7 @@
 <div class="status-bar">
   <div class="status-dot"></div>
   <span class="s-accent">ONLINE</span>
-  <span>// George Carter &bull; Full Sail &bull; Game Dev &bull; Class of 2026</span>
+  <span>// George Carter &bull; Full Sail Alumni &bull; Game Dev &bull; Class of 2026</span>
   <span id="live-time" style="margin-left:auto"></span>
 </div>
 
