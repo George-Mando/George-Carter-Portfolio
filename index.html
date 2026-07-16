@@ -468,44 +468,44 @@
     color: var(--accent); text-transform: uppercase;
   }
 
-  /* multi-image gallery thumb */
+  /* multi-image gallery thumb — STACKED layout:
+     key art full-width on top at its NATURAL aspect ratio (no fixed height,
+     so it can never be cropped), two screenshots side-by-side below */
   .card-thumb--gallery {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 2px;
-    height: 180px;
-    background: var(--border);
+    display: block;
+    height: auto;
+    background: #050608;
   }
   .card-thumb--gallery .gal-main {
-    grid-row: 1 / 3;
-    overflow: hidden;
+    width: 100%;
+    background: #050608;
   }
-  .card-thumb--gallery img {
+  .card-thumb--gallery .gal-main img {
+    width: 100%;
+    height: auto;          /* natural aspect ratio — full image, always */
+    display: block;
+    object-fit: unset;
+    transform: none !important;
+    filter: saturate(0.85) brightness(0.92);
+    transition: filter 0.3s;
+  }
+  .card-thumb--gallery .gal-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 2px;
+    height: 84px;
+    background: var(--border);
+  }
+  .card-thumb--gallery .gal-cell { overflow: hidden; position: relative; }
+  .card-thumb--gallery .gal-cell img {
     width: 100%; height: 100%;
     object-fit: cover; display: block;
     filter: saturate(0.75) brightness(0.85);
     transition: filter 0.3s, transform 0.3s;
   }
-  .project-card:hover .card-thumb--gallery img {
-    filter: saturate(1) brightness(1);
-  }
-  /* Zoom only the small screenshot tiles on hover — never the key art */
-  .project-card:hover .card-thumb--gallery .gal-cell img {
-    transform: scale(1.03);
-  }
-  .card-thumb--gallery .gal-cell { overflow: hidden; position: relative; }
-  /* Main key art: never crop — show the full image, letterboxed on dark */
-  .card-thumb--gallery .gal-main {
-    background: #050608;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .card-thumb--gallery .gal-main img {
-    object-fit: contain !important;
-    object-position: center center;
-    transform: none !important;
-    background: #050608;
-  }
+  .project-card:hover .card-thumb--gallery img { filter: saturate(1) brightness(1); }
+  .project-card:hover .card-thumb--gallery .gal-cell img { transform: scale(1.03); }
   .gal-clickable { cursor: zoom-in; }
 
   /* ── LIGHTBOX ── */
@@ -988,11 +988,13 @@
         <div class="gal-main">
           <img class="gal-clickable" src="https://raw.githubusercontent.com/George-Mando/George-Mando/main/MainImage.png" alt="Eclipse: Quest for the Lost Relic key art" onclick="event.stopPropagation(); openLightbox(this.src, this.alt)">
         </div>
-        <div class="gal-cell">
-          <img class="gal-clickable" src="https://raw.githubusercontent.com/George-Mando/George-Mando/main/IN.png" alt="Eclipse: Quest for the Lost Relic in-game screenshot" onclick="event.stopPropagation(); openLightbox(this.src, this.alt)">
-        </div>
-        <div class="gal-cell">
-          <img class="gal-clickable" src="https://raw.githubusercontent.com/George-Mando/George-Mando/main/HUD.png" alt="Eclipse: Quest for the Lost Relic HUD screenshot" onclick="event.stopPropagation(); openLightbox(this.src, this.alt)">
+        <div class="gal-row">
+          <div class="gal-cell">
+            <img class="gal-clickable" src="https://raw.githubusercontent.com/George-Mando/George-Mando/main/IN.png" alt="Eclipse: Quest for the Lost Relic in-game screenshot" onclick="event.stopPropagation(); openLightbox(this.src, this.alt)">
+          </div>
+          <div class="gal-cell">
+            <img class="gal-clickable" src="https://raw.githubusercontent.com/George-Mando/George-Mando/main/HUD.png" alt="Eclipse: Quest for the Lost Relic HUD screenshot" onclick="event.stopPropagation(); openLightbox(this.src, this.alt)">
+          </div>
         </div>
       </div>
       <div class="card-content">
