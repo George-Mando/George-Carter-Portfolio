@@ -492,6 +492,15 @@
     transform: scale(1.03);
   }
   .card-thumb--gallery .gal-cell { overflow: hidden; position: relative; }
+  /* Main key art: never crop — show the full image, letterboxed on dark */
+  .card-thumb--gallery .gal-main {
+    background: #050608;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card-thumb--gallery .gal-main img {
+    object-fit: contain;
+    background: #050608;
+  }
   .gal-clickable { cursor: zoom-in; }
 
   /* ── LIGHTBOX ── */
